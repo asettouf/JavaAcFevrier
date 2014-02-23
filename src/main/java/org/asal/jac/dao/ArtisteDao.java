@@ -7,10 +7,10 @@ import org.asal.jac.domain.Artiste;
 public interface ArtisteDao {
 	
 	public Collection<Artiste> findAllArtiste();
-	
-	public Artiste findAlbum(Integer id);
-	
-	public void createAlbum(Artiste art);
+
+	public Artiste findArtiste(Integer id);
+
+	public void createArtiste(Artiste art);
 
 
 }

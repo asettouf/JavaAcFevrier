@@ -14,6 +14,7 @@ public class ChansonService {
 
 	@Autowired
 	private ChansonDao cDao;
+	
 	public ChansonService() {
 		// TODO Auto-generated constructor stub
 	}

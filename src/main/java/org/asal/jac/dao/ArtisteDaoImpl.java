@@ -6,9 +6,12 @@ import org.asal.jac.domain.Artiste;
 import org.asal.jac.domain.Chanson;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-@Service
+@Transactional
+@Repository
 public class ArtisteDaoImpl implements ArtisteDao {
 
 	private SessionFactory sessionFactory;
@@ -30,13 +33,13 @@ public class ArtisteDaoImpl implements ArtisteDao {
 	}
 
 	@Override
-	public Artiste findAlbum(Integer id) {
+	public Artiste findArtiste(Integer id) {
 		// TODO Auto-generated method stub
 		return (Artiste) this.sessionFactory.getCurrentSession().get(Artiste.class, id);
 	}
 
 	@Override
-	public void createAlbum(Artiste art) {
+	public void createArtiste(Artiste art) {
 		// TODO Auto-generated method stub
 		sessionFactory.getCurrentSession().save(art);
 		
