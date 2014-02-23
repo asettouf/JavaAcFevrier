@@ -13,7 +13,7 @@
 <c:if test="${not empty cList}">
 	<ul>
 	<c:forEach var="listValue" items="${cList}">
-		<li>Name: <c:out value="${listValue.nom }"/> duree <c:out value="${listValue.duree}"/> code : <c:out value="${listValue.ccodeChanson}"/>
+		<li>Name: <c:out value="${listValue.nom }"/> duree <c:out value="${listValue.duree}"/> code : <c:out value="${listValue.codeChanson}"/>
 		</li>
 
 </c:forEach>
