@@ -1,0 +1,14 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+ 
+ <hibernate-mapping package="org.asal.jac.domain">
+     <class name="Chanson" table="CHANSON">
+         <id name="id" type="integer" column="ID">
+             <generator class="native"/>
+         </id>   
+         <property name="codeChanson" type="integer"></property>
+         <property name="nom" type="string"></property>
+         <property name="duree" type="integer"></property>
+      </class>
+</hibernate-mapping>
