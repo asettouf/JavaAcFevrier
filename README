@@ -33,7 +33,7 @@ src/main/webapp/WEB-INF : *mvc-dispatcher-servlet.xml is used for the controller
 At the root (index.jsp) you should have a jsp page with every link for every functionnality.
 
 There is one functionnality that is not exposed this way, it is the possibility to select individually an artist, album or track, you may do it this way :
-http://localhost:8080/exam_jac/chanson?id=3 assuming the name of the project, the default port and a track with id 3 in the database exist.(or artiste?id=3 for artist with id 3, the same stands for albums)
+http://localhost:8080/exam_jac/chanson?id=3 assuming the name of the project(here exam_jac), the default port(here 8080) and a track with id 3 in the database exist and are the same as in the example.(or artiste?id=3 for artist with id 3, the same stands for albums)
 
 *all
 
@@ -68,9 +68,9 @@ The ID is mandatory and must be the ID in the database and not the code or anyth
 
 Due to a last minute bug that erased the test database, it was not possible to do exhaustive tests on functionnalities
 Republishing too many times the project may lead to a "PermGen Space" error from Glassfish, either restart the server or increase its heap memory
-The get method to select an artist/album/track should at least for artist and album contain the possibility to see their albums/tracks
+The GET method to select an artist/album/track should at least for artist and album contain the possibility to see their albums/tracks
 Perhaps the "all" page should show the db id of the entities (not sure if this is meant for users or admin usage, perhaps both would be better)
-Eclipse doesn't find the library required for jstl usage in jsp, not sure of the origin of this issue.
-The get method to select an artist should be easier to use (with an input type field for instance).
+Eclipse doesn't find the library required for jstl usage in jsp pages, not sure of the origin of this issue.
+The GET method to select an artist should be easier to use (with an input type field for instance).
 A lot of the informations in the add/del/up sections are actually not used (for instance when deleting a song, only the field name is really used)
 
