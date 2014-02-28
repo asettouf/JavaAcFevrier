@@ -8,12 +8,13 @@ public interface ChansonDao {
 	
 	public Collection<Chanson> findAllChanson();
 	
-	public Chanson findAlbum(Integer id);
-	
-	public void createAlbum(Chanson ch);
 	
 	public void updateChanson(Chanson ch);
 	
 	public void deleteChanson(Chanson ch);
+
+	void createChanson(Chanson ch);
+
+	Chanson findChanson(Integer id);
 
 }

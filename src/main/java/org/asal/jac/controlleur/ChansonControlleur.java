@@ -36,7 +36,7 @@ public class ChansonControlleur {
 		return "chanson";
 	}
 	
-	@RequestMapping(value="/cChanson", method=RequestMethod.GET)
+	@RequestMapping(value="/addChanson", method=RequestMethod.GET)
 	public String returnChanson(Model mod){
 		mod.addAttribute("chanson", new Chanson());
 		return "createChanson";
@@ -68,6 +68,7 @@ public class ChansonControlleur {
 	@RequestMapping(value="/upChanson", method=RequestMethod.POST)
 	public String upChanson(@ModelAttribute("chanson")Chanson ch){
 		cService.updateChanson(ch);
+		System.out.println(ch.getId());
 		return "upChanson";
 	}
 

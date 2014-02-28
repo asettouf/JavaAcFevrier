@@ -16,8 +16,6 @@ public class ChansonDaoImpl implements ChansonDao {
 	
 	private static SessionFactory sessionFactory;
 	
-
-	
 	public ChansonDaoImpl() {
 		// TODO Auto-generated constructor stub
 	}
@@ -28,7 +26,7 @@ public class ChansonDaoImpl implements ChansonDao {
 		this.sessionFactory=s;
 	}
 	
-	
+	//Function required because users are not expected to know the id of the song in the database 
 	public static Chanson findChansonByName(String name){
 		Query q=sessionFactory.getCurrentSession().createQuery("from Chanson C Where C.nom=:name");
 		q.setString("name",name);
@@ -43,13 +41,13 @@ public class ChansonDaoImpl implements ChansonDao {
 	}
 
 	@Override
-	public Chanson findAlbum(Integer id) {
+	public Chanson findChanson(Integer id) {
 		// TODO Auto-generated method stub
 		return (Chanson) this.sessionFactory.getCurrentSession().get(Chanson.class, id);
 	}
 
 	@Override
-	public void createAlbum(Chanson ch) {
+	public void createChanson(Chanson ch) {
 		// TODO Auto-generated method stub
 		if(ch.getAlbum()!=null){
 			sessionFactory.getCurrentSession().save(ch.getAlbum());
@@ -60,7 +58,6 @@ public class ChansonDaoImpl implements ChansonDao {
 	public void deleteChanson(Chanson ch){
 		Chanson c=(Chanson) sessionFactory.getCurrentSession().get(Chanson.class,this.findChansonByName(ch.getNom()).getId());
 		if (c!=null){
-			System.out.println(c.getNom());
 			sessionFactory.getCurrentSession().delete(c);
 		}
 		
@@ -71,10 +68,14 @@ public class ChansonDaoImpl implements ChansonDao {
 	}
 	
 	public void updateChanson(Chanson ch){
-		Chanson c=(Chanson) sessionFactory.getCurrentSession().get(Chanson.class,this.findChansonByName(ch.getNom()).getId());
-		c.setNom(ch.getNom());
-		c.setDuree(ch.getDuree());
-		c.setCodeChanson(ch.getCodeChanson());
+		Chanson c=(Chanson) sessionFactory.getCurrentSession().get(Chanson.class,ch.getId());
+		System.out.println(c.getNom());
+		if(ch.getNom()!=null&&ch.getNom()!=c.getNom())
+			c.setNom(ch.getNom());
+		if(ch.getDuree()!=c.getDuree())
+			c.setDuree(ch.getDuree());
+		if(ch.getCodeChanson()!=c.getCodeChanson())
+			c.setCodeChanson(ch.getCodeChanson());
 		this.sessionFactory.getCurrentSession().merge(c);
 	}
 

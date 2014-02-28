@@ -5,12 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Del Chanson test</title>
+<title>Up Chanson test</title>
 </head>
 <body>
-<form:form method="post" action="delChanson" modelAttribute="chanson">
+<form:form method="post" action="upChanson" modelAttribute="chanson">
  
     <table>
+    <tr>
+        <td>ID</td>
+        <td><form:input path="id" /></td> 
+    </tr>
     <tr>
         <td>Nom</td>
         <td><form:input path="nom" /></td> 

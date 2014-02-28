@@ -24,11 +24,11 @@ public class ChansonService {
 	}
 	
 	public Chanson findChanson(int num){
-		return cDao.findAlbum(num);
+		return cDao.findChanson(num);
 	}
 	
 	public void createChanson(Chanson c){
-		cDao.createAlbum(c);
+		cDao.createChanson(c);
 	}
 	
 	public void deleteChanson(Chanson c){
