@@ -2,6 +2,7 @@ package org.asal.jac.dao;
 
 import java.util.Collection;
 
+import org.asal.jac.domain.Album;
 import org.asal.jac.domain.Chanson;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -49,9 +50,10 @@ public class ChansonDaoImpl implements ChansonDao {
 	@Override
 	public void createChanson(Chanson ch) {
 		// TODO Auto-generated method stub
-		if(ch.getAlbum()!=null){
-			sessionFactory.getCurrentSession().save(ch.getAlbum());
-		}
+		
+		Album a=AlbumDaoImpl.findAlbumByName(ch.getAlbum().getNom());
+		ch.setAlbum(a);
+		
 		sessionFactory.getCurrentSession().save(ch);
 	}
 	

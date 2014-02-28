@@ -31,6 +31,8 @@
         <td>Album.code</td>
         <td><form:input path="album.codeAlbum" /></td>
     </tr>
+	  
+    
     <tr>
         <td colspan="2">
             <input type="submit" value="submit"/>

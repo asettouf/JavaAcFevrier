@@ -9,9 +9,8 @@
 </head>
 <body>
 
-<c:if test="${not empty chanson}">
-Name: <c:out value="${chanson.nom }"/>  code : <c:out value="${chanson.codeChanson}"/> Duree : <c:out value="${chanson.duree}"/>
+<c:if test="${not empty artiste}">
+Name: <c:out value="${artiste.nom }"/>  code : <c:out value="${artiste.codeArtiste}"/>
 </c:if>
-
 </body>
 </html>

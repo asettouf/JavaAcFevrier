@@ -9,22 +9,8 @@
 </head>
 <body>
 
-<h2>Albums</h2>
-<c:if test="${not empty aList}">
-	<ul>
-	<c:forEach var="listValue" items="${aList}">
-		<li>Name: <c:out value="${listValue.nom }"/> , code : <c:out value="${listValue.codeAlbum}"/></li>
-		<c:if test="${not empty listValue.chansons}">
-			<ul>
-			<c:forEach var="clistValue" items="${listValue.chansons}">
-				<li>Name: <c:out value="${clistValue.nom }"/> duree <c:out value="${clistValue.duree}"/> code : <c:out value="${clistValue.codeChanson}"/></li>
-			</c:forEach>
-		</ul>
-		</c:if>
-		
-	</c:forEach>
-	</ul>
+<c:if test="${not empty album}">
+Name: <c:out value="${album.nom }"/>  code : <c:out value="${album.codeAlbum}"/>
 </c:if>
-
 </body>
 </html>

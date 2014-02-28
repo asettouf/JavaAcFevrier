@@ -1,0 +1,75 @@
+This readme describes the application and technologies used here.
+
+First be sure to used the previous project to have a functionning database, you may find it here : https://github.com/asettouf/javac
+
+
+****TECHNOLOGIES****
+
+*Hibernate 4
+*HSQLDB
+*Spring MVC 3
+*Glassfish 4
+*JRE 1.7
+
+
+****ARCHITECTURE****
+
+src/main/resources : contains the entity mapping files
+
+org.asal.jac.controlleur : contains controllers (servlet likes) class (IndexControlleur contains the root mapping)
+org.asal.jac.domain : contains domain classes that define entity that will be persisted
+org.asal.jac.cservices : contains service classes that link the daos and the controllers
+org.asal.jac.dao : contains dao classes that access the database
+
+src/main/webapp/WEB-INF : *mvc-dispatcher-servlet.xml is used for the controller mapping for Spring
+						  *applicationContext.xml is used for the service and dao mapping for Spring	
+						  pages folder contains every jsp page used by the server
+
+
+
+
+****GUIDE****
+
+At the root (index.jsp) you should have a jsp page with every link for every functionnality.
+
+There is one functionnality that is not exposed this way, it is the possibility to select individually an artist, album or track, you may do it this way :
+http://localhost:8080/exam_jac/chanson?id=3 assuming the name of the project, the default port and a track with id 3 in the database exist.(or artiste?id=3 for artist with id 3, the same stands for albums)
+
+*all
+
+This page show everything in the database in the following fashion :
+
+Artiste1 name code
+	Album1 name code
+		Track1 name duration code
+		Track2 name duration code
+	Album 2 name code
+Artiste2 name code
+
+and so on and so forth.
+
+
+*Add section
+
+You can add an artist with the corresponding fields, an album be sure to include the necessary information to link it with an artist.
+Songs were a little more problematic (since in the db an album is necessarly linked to an artist), thus be sure that the album already exists when creating a new song
+
+*Delete section
+
+You may delete things here, theoretically it should work in cascade (if an album contains songs the songs should be deleted as well)
+
+*Update
+
+The ID is mandatory and must be the ID in the database and not the code or anything else.
+
+
+
+****FLAWS****
+
+Due to a last minute bug that erased the test database, it was not possible to do exhaustive tests on functionnalities
+Republishing too many times the project may lead to a "PermGen Space" error from Glassfish, either restart the server or increase its heap memory
+The get method to select an artist/album/track should at least for artist and album contain the possibility to see their albums/tracks
+Perhaps the "all" page should show the db id of the entities (not sure if this is meant for users or admin usage, perhaps both would be better)
+When creating an album, the artist will be added and not updated if he already exists
+Eclipse don't find the library required for jstl usage in jsp, not sure of the origin of this issue.
+
