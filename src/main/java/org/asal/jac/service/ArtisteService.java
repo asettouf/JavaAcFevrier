@@ -30,4 +30,12 @@ public class ArtisteService {
 	public Artiste findArtiste(int id){
 		return aDao.findArtiste(id);
 	}
+	
+	public void delArtiste(Artiste art){
+		aDao.delArtiste(art);
+	}
+	
+	public void upArtiste(Artiste art){
+		aDao.upArtiste(art);
+	}
 }

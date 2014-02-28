@@ -36,5 +36,13 @@ public class AlbumService {
 		aDao.createAlbum(alb);
 		
 	}
+	
+	public void delAlbum(Album alb){
+		aDao.delAlbum(alb);
+	}
+	
+	public void upAlbum(Album alb){
+		aDao.upAlbum(alb);
+	}
 
 }

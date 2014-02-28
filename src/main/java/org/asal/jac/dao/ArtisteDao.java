@@ -11,6 +11,10 @@ public interface ArtisteDao {
 	public Artiste findArtiste(Integer id);
 
 	public void createArtiste(Artiste art);
+	
+	public void delArtiste(Artiste art);
+	
+	public void upArtiste(Artiste art);
 
 
 }

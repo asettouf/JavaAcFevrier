@@ -32,16 +32,39 @@ public class AlbumControlleur {
 	}
 	
 	@RequestMapping(value="/addAlbum", method=RequestMethod.GET)
-	public String returnChanson(Model mod){
+	public String addAlbum(Model mod){
 		mod.addAttribute("album", new Album());
 		return "createAlbum";
 	}
 	
+	@RequestMapping(value="/delAlbum", method=RequestMethod.GET)
+	public String delAlbum(Model mod){
+		mod.addAttribute("album", new Album());
+		return "delAlbum";
+	}
+	
+	@RequestMapping(value="/upAlbum", method=RequestMethod.GET)
+	public String upAlbum(Model mod){
+		mod.addAttribute("album", new Album());
+		return "upAlbum";
+	}
+	
 	
 	@RequestMapping(value="/addAlbum", method=RequestMethod.POST)
-	public String returnAlbum(@ModelAttribute("album")Album a){
+	public String addAlbum(@ModelAttribute("album")Album a){
 		aServ.createAlbum(a);
 		return "createAlbum";
 	}
 
+	@RequestMapping(value="/delAlbum", method=RequestMethod.POST)
+	public String delAlbum(@ModelAttribute("album")Album a){
+		aServ.delAlbum(a);
+		return "delAlbum";
+	}
+	
+	@RequestMapping(value="/upAlbum", method=RequestMethod.POST)
+	public String upAlbum(@ModelAttribute("album")Album a){
+		aServ.upAlbum(a);
+		return "upAlbum";
+	}
 }

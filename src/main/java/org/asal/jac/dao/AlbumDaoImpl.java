@@ -3,6 +3,9 @@ package org.asal.jac.dao;
 import java.util.Collection;
 
 import org.asal.jac.domain.Album;
+import org.asal.jac.domain.Artiste;
+import org.asal.jac.domain.Chanson;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public class AlbumDaoImpl implements AlbumDao {
 
-	private SessionFactory sessionFactory;
+	private static SessionFactory sessionFactory;
 
 	public AlbumDaoImpl() {
 		// TODO Auto-generated constructor stub
@@ -23,6 +26,12 @@ public class AlbumDaoImpl implements AlbumDao {
 	public void setSessionFactory(SessionFactory s){
 		//Configuration cfg= new Configuration();
 		this.sessionFactory=s;
+	}
+	
+	public static Album findAlbumByName(String name){
+		Query q=sessionFactory.getCurrentSession().createQuery("from Album A Where A.nom=:name");
+		q.setString("name",name);
+		return (Album) q.uniqueResult();
 	}
 	
 	@Override
@@ -47,8 +56,34 @@ public class AlbumDaoImpl implements AlbumDao {
 		
 	}
 	
-	public void updateAlbum(Album alb){
-		this.sessionFactory.getCurrentSession().merge(alb);
+
+
+	@Override
+	public void delAlbum(Album alb) {
+		Album a=(Album) sessionFactory.getCurrentSession().get(Album.class, findAlbumByName(alb.getNom()).getId());
+		if (a!=null){
+			sessionFactory.getCurrentSession().delete(a);
+		}
+		else{
+			System.out.println("Album not found");
+		}
+		
 	}
+
+	@Override
+	public void upAlbum(Album alb) {
+		Album a=(Album) sessionFactory.getCurrentSession().get(Album.class,alb.getId());
+		if (a!=null){
+			if (alb.getNom()!=a.getNom())
+				a.setNom(alb.getNom());
+			if (alb.getCodeAlbum()!=a.getCodeAlbum())
+				a.setCodeAlbum(alb.getCodeAlbum());
+			sessionFactory.getCurrentSession().merge(a);
+		}
+		
+		else
+			System.out.println("Album not found");
+		}
+
 
 }

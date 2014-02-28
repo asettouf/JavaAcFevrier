@@ -23,12 +23,25 @@ public class ArtisteControlleur {
 		// TODO Auto-generated constructor stub
 	}
 
-	@RequestMapping(value="/artiste",method = RequestMethod.GET)
+	@RequestMapping(value="/all",method = RequestMethod.GET)
 	public String returnAllArtiste(ModelMap map){
 		Collection<Artiste> aList=aServ.findAllArtiste();
 		map.addAttribute("aList",aList);
-		return "artiste";
+		return "all";
 	}
+	
+	@RequestMapping(value="/delArtiste", method=RequestMethod.GET)
+	public String delArtiste(Model mod){
+		mod.addAttribute("artiste", new Artiste());
+		return "delArtiste";
+	}
+	
+	@RequestMapping(value="/upArtiste", method=RequestMethod.GET)
+	public String upArtiste(Model mod){
+		mod.addAttribute("artiste", new Artiste());
+		return "upArtiste";
+	}
+	
 	
 	@RequestMapping(value="/addArtiste",method=RequestMethod.GET)
 	public String  returnArtiste(Model mod){
@@ -40,5 +53,17 @@ public class ArtisteControlleur {
 	public String returnArtiste(@ModelAttribute("artiste")Artiste a){
 		aServ.createArtiste(a);
 		return "createArtiste";
+	}
+	
+	@RequestMapping(value="/delArtiste", method=RequestMethod.POST)
+	public String delArtiste(@ModelAttribute("artiste")Artiste a){
+		aServ.delArtiste(a);;
+		return "delArtiste";
+	}
+	
+	@RequestMapping(value="/upArtiste", method=RequestMethod.POST)
+	public String upArtiste(@ModelAttribute("artiste")Artiste a){
+		aServ.upArtiste(a);
+		return "upArtiste";
 	}
 }
