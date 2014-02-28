@@ -30,4 +30,12 @@ public class ChansonService {
 	public void createChanson(Chanson c){
 		cDao.createAlbum(c);
 	}
+	
+	public void deleteChanson(Chanson c){
+		cDao.deleteChanson(c);
+	}
+	
+	public void updateChanson(Chanson c){
+		cDao.updateChanson(c);
+	}
 }

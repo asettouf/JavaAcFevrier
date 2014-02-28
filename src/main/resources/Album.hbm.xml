@@ -13,5 +13,6 @@
              <key column="ALBUMID"/>
              <one-to-many class="Chanson"></one-to-many>
          </set>
+         <many-to-one name="art" class="Artiste" column="ARTISTEID" not-null="true"/>
       </class>
 </hibernate-mapping>

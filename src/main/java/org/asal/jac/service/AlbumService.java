@@ -33,7 +33,7 @@ public class AlbumService {
 	
 	public void createAlbum(Album alb) {
 		// TODO Auto-generated method stub
-		aDao.createAlbum(alb);;
+		aDao.createAlbum(alb);
 		
 	}
 

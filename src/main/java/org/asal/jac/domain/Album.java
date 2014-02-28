@@ -9,6 +9,7 @@ public class Album {
 	private int codeAlbum;
 	private String nom;
 	private Set<Chanson> chansons;
+	private Artiste art;
 	private int ARTISTEID;
 	
 	public Album(int codeAlbum,String nom, Set<Chanson> chansons) {
@@ -25,6 +26,7 @@ public class Album {
 	}
 	
 	public void addChanson(Chanson toAdd){
+		toAdd.setAlbum(this);
 		this.chansons.add(toAdd);
 	}
 	public int getCodeAlbum() {
@@ -67,6 +69,14 @@ public class Album {
 
 	public void setARTISTEID(int aRTISTEID) {
 		ARTISTEID = aRTISTEID;
+	}
+
+	public Artiste getArt() {
+		return art;
+	}
+
+	public void setArt(Artiste art) {
+		this.art = art;
 	}
 
 }

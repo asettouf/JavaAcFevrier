@@ -10,5 +10,6 @@
          <property name="codeChanson" type="integer"></property>
          <property name="nom" type="string"></property>
          <property name="duree" type="integer"></property>
+         <many-to-one name="album" class="Album" column="ALBUMID" not-null="true"/>
       </class>
 </hibernate-mapping>

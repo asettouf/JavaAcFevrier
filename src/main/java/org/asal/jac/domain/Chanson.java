@@ -6,7 +6,9 @@ public class Chanson {
 	private int codeChanson;
 	private String nom;
 	private int duree;
+	
 	private int ALBUMID;
+	private Album album;
 
 	public Chanson(int codeChanson,String nom, int duree) {
 		super();
@@ -58,6 +60,14 @@ public class Chanson {
 
 	public void setALBUMID(int aLBUMID) {
 		ALBUMID = aLBUMID;
+	}
+
+	public Album getAlbum() {
+		return album;
+	}
+
+	public void setAlbum(Album album) {
+		this.album = album;
 	}
 
 }

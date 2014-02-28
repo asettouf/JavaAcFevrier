@@ -40,8 +40,15 @@ public class AlbumDaoImpl implements AlbumDao {
 	@Override
 	public void createAlbum(Album alb) {
 		// TODO Auto-generated method stub
+		if (alb.getArt()!=null){
+			sessionFactory.getCurrentSession().save(alb.getArt());
+		}
 		sessionFactory.getCurrentSession().save(alb);
 		
+	}
+	
+	public void updateAlbum(Album alb){
+		this.sessionFactory.getCurrentSession().merge(alb);
 	}
 
 }

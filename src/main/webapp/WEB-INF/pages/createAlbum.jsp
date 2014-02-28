@@ -5,33 +5,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ajout Chanson test</title>
+<title>Ajout Album </title>
 </head>
 <body>
-<form:form method="post" action="addChanson" modelAttribute="chanson">
- 
-    <table>
-    <tr>
+<form:form method="post" action="addAlbum" modelAttribute="album">
+
+ <h2>Album</h2>
+ <table>
+ <tr>
+ 		
         <td>Nom</td>
         <td><form:input path="nom" /></td> 
     </tr>
     <tr>
-        <td>Duree</td>
-        <td><form:input path="duree" /></td>
-    </tr>
-    <tr>
         <td>Code</td>
-        <td><form:input path="codeChanson" /></td>
-    </tr>
-       <tr>
-        <td>Album.nom</td>
-        <td><form:input path="album.nom" /></td>
+        <td><form:input path="codeAlbum" /></td>
     </tr>
      <tr>
-        <td>Album.code</td>
-        <td><form:input path="album.codeAlbum" /></td>
+        <td>Artiste.nom</td>
+        <td><form:input path="art.nom" /></td>
     </tr>
-    <tr>
+     <tr>
+        <td>Artiste.code</td>
+        <td><form:input path="art.codeArtiste" /></td>
+    </tr>
+ <tr>
         <td colspan="2">
             <input type="submit" value="submit"/>
         </td>
