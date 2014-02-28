@@ -50,9 +50,20 @@ public class AlbumDaoImpl implements AlbumDao {
 	public void createAlbum(Album alb) {
 		// TODO Auto-generated method stub
 		if (alb.getArt()!=null){
-			sessionFactory.getCurrentSession().save(alb.getArt());
+			if (ArtisteDaoImpl.findArtisteByName(alb.getArt().getNom())==null){
+				sessionFactory.getCurrentSession().save(alb.getArt());
+				
+			}
+			else{
+				Artiste tmp=(Artiste) ArtisteDaoImpl.findArtisteByName(alb.getArt().getNom());
+			//	alb.setARTISTEID(tmp.getId());
+				alb.setArt(tmp);
+			}
+			
+			sessionFactory.getCurrentSession().save(alb);
+				
 		}
-		sessionFactory.getCurrentSession().save(alb);
+		
 		
 	}
 	

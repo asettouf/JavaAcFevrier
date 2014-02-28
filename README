@@ -51,7 +51,7 @@ and so on and so forth.
 
 *Add section
 
-You can add an artist with the corresponding fields, an album be sure to include the necessary information to link it with an artist.
+You can add an artist with the corresponding fields, for an album be sure to include the necessary information to link it with an artist (if the artist does not exist it will be created automatically).
 Songs were a little more problematic (since in the db an album is necessarly linked to an artist), thus be sure that the album already exists when creating a new song
 
 *Delete section
@@ -70,6 +70,7 @@ Due to a last minute bug that erased the test database, it was not possible to d
 Republishing too many times the project may lead to a "PermGen Space" error from Glassfish, either restart the server or increase its heap memory
 The get method to select an artist/album/track should at least for artist and album contain the possibility to see their albums/tracks
 Perhaps the "all" page should show the db id of the entities (not sure if this is meant for users or admin usage, perhaps both would be better)
-When creating an album, the artist will be added and not updated if he already exists
-Eclipse don't find the library required for jstl usage in jsp, not sure of the origin of this issue.
+Eclipse doesn't find the library required for jstl usage in jsp, not sure of the origin of this issue.
+The get method to select an artist should be easier to use (with an input type field for instance).
+A lot of the informations in the add/del/up sections are actually not used (for instance when deleting a song, only the field name is really used)
 
