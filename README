@@ -16,14 +16,14 @@ First be sure to used the previous project to have a functionning database, you 
 
 src/main/resources : contains the entity mapping files
 
-org.asal.jac.controlleur : contains controllers (servlet likes) class (IndexControlleur contains the root mapping)
+org.asal.jac.controlleur : contains controller (servlet likes) classes (IndexControlleur contains the root mapping)
 org.asal.jac.domain : contains domain classes that define entity that will be persisted
-org.asal.jac.cservices : contains service classes that link the daos and the controllers
+org.asal.jac.services : contains service classes that link the daos and the controllers
 org.asal.jac.dao : contains dao classes that access the database
 
 src/main/webapp/WEB-INF : *mvc-dispatcher-servlet.xml is used for the controller mapping for Spring
-						  *applicationContext.xml is used for the service and dao mapping for Spring	
-						  pages folder contains every jsp page used by the server
+			  *applicationContext.xml is used for the service and dao mapping for Spring	
+			  *pages folder contains every jsp page used by the server
 
 
 
